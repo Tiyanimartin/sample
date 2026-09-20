@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOCOBO · t-shirts</title>
+  <!-- Font Awesome for simple icons (optional, but adds clean style) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & GLOBAL ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #faf9f6;
+      color: #1e1e1e;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ----- MAIN WRAPPER ----- */
+    .store {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+      padding: 2rem 2rem 3rem;
+      border: 1px solid #f0ede8;
+    }
+
+    /* ----- HEADER / BRANDING ----- */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #eee9e2;
+      padding-bottom: 1.25rem;
+    }
+
+    .logo {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      background: #f5f1ea;
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .logo span {
+      color: #a17f5a;
+      font-weight: 300;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #6b6258;
+      background: #f2eee9;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+    }
+
+    /* ----- INTRO (mini hero) ----- */
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .intro h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #1e1e1e;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      color: #5c554b;
+      max-width: 550px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      background: #f9f7f4;
+      padding: 0.75rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+    }
+
+    /* ----- PRODUCT GRID ----- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem 1.5rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    /* ----- PRODUCT CARD (no images) ----- */
+    .card {
+      background: #ffffff;
+      border-radius: 1.75rem;
+      padding: 1.75rem 1.25rem 1.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0ede8;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.12);
+      border-color: #dacfc2;
+      transform: translateY(-4px);
+    }
+
+    /* ---- simple t-shirt "icon" made with pure CSS ---- */
+    .tshirt-icon {
+      font-size: 3.8rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #2d2a26;
+      background: #f7f4ef;
+      width: 95px;
+      height: 95px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.2s;
+      border: 1px solid #e3dbd1;
+    }
+
+    .card:hover .tshirt-icon {
+      background: #ede7df;
+      color: #a17f5a;
+    }
+
+    /* product name */
+    .product-name {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0.5rem 0 0.25rem;
+      color: #1a1a1a;
+    }
+
+    /* short description */
+    .product-desc {
+      font-size: 0.9rem;
+      color: #7b7368;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    /* price */
+    .price {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin: 0.5rem 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .price small {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #9a8e80;
+      margin-left: 4px;
+    }
+
+    /* color swatches (no images, pure text/shapes) */
+    .swatches {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #e2d9d0;
+      background: #fff;
+      transition: 0.15s;
+      cursor: default;
+    }
+
+    .swatch.black { background: #1e1e1e; }
+    .swatch.white { background: #fefefe; border-color: #ccc5bc; }
+    .swatch.sand { background: #d9c7b1; }
+    .swatch.navy { background: #1e2b3a; }
+    .swatch.olive { background: #6b6b4b; }
+    .swatch.burgundy { background: #6d2e2e; }
+
+    /* button */
+    .btn {
+      background: #1e1e1e;
+      color: #ffffff;
+      border: none;
+      font-weight: 500;
+      padding: 0.85rem 1.8rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+      max-width: 200px;
+      margin-top: auto;
+      border: 1px solid #1e1e1e;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      background: #a17f5a;
+      border-color: #a17f5a;
+      color: white;
+      transform: scale(1.02);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+      background: #7f6345;
+    }
+
+    /* ----- INFO FOOTER / MESSAGE ----- */
+    .store-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #eee9e2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #7b7368;
+    }
+
+    .shipping-note i {
+      margin-right: 6px;
+      color: #a17f5a;
+    }
+
+    .copyright {
+      font-weight: 300;
+    }
+
+    /* ----- RESPONSIVE ADJUSTMENTS ----- */
+    @media (max-width: 700px) {
+      body { padding: 1rem 0.75rem; }
+      .store { padding: 1.5rem 1rem 2rem; border-radius: 1.75rem; }
+      .header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .logo { font-size: 1.8rem; }
+      .tagline { font-size: 0.8rem; padding: 0.4rem 1rem; }
+      .intro h1 { font-size: 1.8rem; }
+      .intro p { font-size: 1rem; padding: 0.5rem 1rem; }
+      .product-grid { gap: 1.25rem; }
+      .card { padding: 1.25rem 1rem; }
+      .tshirt-icon { width: 75px; height: 75px; font-size: 3rem; }
+    }
+
+    @media (max-width: 420px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .store-footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .btn { max-width: 100%; }
+    }
+
+    /* ----- UTILITY / DECORATIVE ----- */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+    }
+
+    /* t-shirt icon using text (unicode) – simple and clean */
+    .tshirt-icon i {
+      font-size: inherit;
+    }
+
+    /* for swatch hover effect (optional) */
+    .swatch:hover {
+      transform: scale(1.15);
+      border-color: #a17f5a;
+    }
+  </style>
+</head>
+<body>
+  <div class="store">
+    <!-- header -->
+    <header class="header">
+      <div class="logo">YOCOBO<span>.</span></div>
+      <div class="tagline">premium tees · no pictures needed</div>
+    </header>
+
+    <!-- mini hero -->
+    <div class="intro">
+      <h1>Wear the feeling.</h1>
+      <p>Minimalist t-shirts, maximal comfort. Pure cotton. Clean design.</p>
+    </div>
+
+    <!-- product grid – 6 t-shirt styles, no images -->
+    <div class="product-grid">
+
+      <!-- product 1 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Essential Crew</h2>
+        <p class="product-desc">Midweight cotton, relaxed fit</p>
+        <div class="price">$32 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch black" title="black"></span>
+          <span class="swatch white" title="white"></span>
+          <span class="swatch sand" title="sand"></span>
+        </div>
+        <button class="btn" aria-label="Add Essential Crew to cart">Add to cart</button>
+      </div>
+
+      <!-- product 2 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Heavyweight Boxy</h2>
+        <p class="product-desc">Structured, dropped shoulder</p>
+        <div class="price">$38 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch navy" title="navy"></span>
+          <span class="swatch olive" title="olive"></span>
+          <span class="swatch black" title="black"></span>
+        </div>
+        <button class="btn" aria-label="Add Heavyweight Boxy to cart">Add to cart</button>
+      </div>
+
+      <!-- product 3 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Vintage Soft</h2>
+        <p class="product-desc">Garment-dyed, lived-in feel</p>
+        <div class="price">$36 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch burgundy" title="burgundy"></span>
+          <span class="swatch sand" title="sand"></span>
+          <span class="swatch white" title="white"></span>
+        </div>
+        <button class="btn" aria-label="Add Vintage Soft to cart">Add to cart</button>
+      </div>
+
+      <!-- product 4 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Long Sleeve Tee</h2>
+        <p class="product-desc">Ribbed cuffs, everyday layer</p>
+        <div class="price">$42 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch black" title="black"></span>
+          <span class="swatch white" title="white"></span>
+          <span class="swatch navy" title="navy"></span>
+        </div>
+        <button class="btn" aria-label="Add Long Sleeve Tee to cart">Add to cart</button>
+      </div>
+
+      <!-- product 5 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Pocket Tee</h2>
+        <p class="product-desc">Left chest pocket, classic cut</p>
+        <div class="price">$34 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch sand" title="sand"></span>
+          <span class="swatch olive" title="olive"></span>
+          <span class="swatch black" title="black"></span>
+        </div>
+        <button class="btn" aria-label="Add Pocket Tee to cart">Add to cart</button>
+      </div>
+
+      <!-- product 6 -->
+      <div class="card">
+        <div class="tshirt-icon" aria-hidden="true">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h2 class="product-name">Oversized Tee</h2>
+        <p class="product-desc">Roomy, streetwear essential</p>
+        <div class="price">$40 <small>USD</small></div>
+        <div class="swatches" aria-label="available colors">
+          <span class="swatch navy" title="navy"></span>
+          <span class="swatch burgundy" title="burgundy"></span>
+          <span class="swatch white" title="white"></span>
+        </div>
+        <button class="btn" aria-label="Add Oversized Tee to cart">Add to cart</button>
+      </div>
+    </div>
+
+    <!-- footer area -->
+    <div class="store-footer">
+      <div class="shipping-note">
+        <i class="fas fa-truck"></i> Free shipping over $60 · easy returns
+      </div>
+      <div class="copyright">
+        YOCOBO studio · designed with care
+      </div>
+    </div>
+  </div>
+</body>
+</html>
